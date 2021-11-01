@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Task component When it recives and object then it should render a task with the task text inside 1`] = `
+<li
+  className="task form-check list-group-item d-flex justify-content-between align-items-center"
+>
+  <div
+    className="task__left"
+  >
+    <input
+      className="form-check-input"
+      id="task"
+      name="task"
+      type="checkbox"
+    />
+    <input
+      className="task__text form-control border-0"
+      onChange={[Function]}
+      type="text"
+      value="Sacar a Elsa"
+    />
+  </div>
+  <button
+    className="task__delete btn btn-danger pull-right"
+  >
+    -
+  </button>
+</li>
+`;

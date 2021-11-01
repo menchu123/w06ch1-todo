@@ -1,5 +1,3 @@
-import "./Form.css";
-
 const Form = () => {
   return (
     <div className="form-row align-items-center todo__form">
