@@ -17,13 +17,12 @@ const Form = () => {
 
   const onCreateTask = (event) => {
     event.preventDefault();
-    const url = "https://todo-api-w06ch1.herokuapp.com/tasks";
     const newTask = {
       task: taskData.task,
       done: false,
     };
 
-    createTask(newTask, url);
+    createTask(newTask);
 
     resetForm();
   };

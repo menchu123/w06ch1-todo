@@ -1,17 +1,30 @@
 import { render, screen } from "@testing-library/react";
 import Task from "./Task";
 import ReactTestRenderer from "react-test-renderer";
+import configureStore from "../../redux/store";
+import { Provider } from "react-redux";
 
 describe("Given a Task component", () => {
   describe("When it is passed a 'cool' text", () => {
     test("Then it should render an input with a 'cool' value", () => {
       const value = "cool";
 
-      render(<Task taskText={value} />);
+      const task = {
+        id: 3,
+        task: value,
+        done: true,
+      };
 
-      const task = screen.getByRole("textbox");
+      const store = configureStore();
+      render(
+        <Provider store={store}>
+          <Task task={task} />
+        </Provider>
+      );
 
-      expect(task).toHaveValue(value);
+      const taskComponent = screen.getByRole("textbox");
+
+      expect(taskComponent).toHaveValue(value);
     });
   });
 
@@ -23,9 +36,12 @@ describe("Given a Task component", () => {
         done: true,
       };
 
-      const value = task.task;
-
-      const taskComponent = ReactTestRenderer.create(<Task taskText={value} />);
+      const store = configureStore();
+      const taskComponent = ReactTestRenderer.create(
+        <Provider store={store}>
+          <Task task={task} />
+        </Provider>
+      );
       expect(taskComponent.toJSON()).toMatchSnapshot();
     });
   });

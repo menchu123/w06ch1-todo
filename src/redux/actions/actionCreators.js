@@ -14,3 +14,8 @@ export const createTaskAction = (task) => ({
   type: actionTypes.createTask,
   task,
 });
+
+export const deleteTaskAction = (id) => ({
+  type: actionTypes.deleteTask,
+  id,
+});

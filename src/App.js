@@ -11,7 +11,6 @@ function App() {
   useEffect(() => {
     loadTasks();
   }, [loadTasks]);
-  console.log(tasks);
 
   return (
     <div className="todo-app container p-0">
@@ -19,7 +18,7 @@ function App() {
       <Form />
       <TaskList>
         {tasks ? (
-          tasks.map((task) => <Task taskText={task.task} key={task.id} />)
+          tasks.map((task) => <Task task={task} key={task.id} />)
         ) : (
           <div>cool</div>
         )}
