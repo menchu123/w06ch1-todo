@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Task from "./Task";
 import ReactTestRenderer from "react-test-renderer";
+import configureStore from "../../redux/store";
+import { Provider } from "react-redux";
 
 describe("Given a Task component", () => {
   describe("When it is passed a 'cool' text", () => {
@@ -13,7 +15,12 @@ describe("Given a Task component", () => {
         done: true,
       };
 
-      render(<Task task={task} />);
+      const store = configureStore();
+      render(
+        <Provider store={store}>
+          <Task task={task} />
+        </Provider>
+      );
 
       const taskComponent = screen.getByRole("textbox");
 
@@ -29,7 +36,12 @@ describe("Given a Task component", () => {
         done: true,
       };
 
-      const taskComponent = ReactTestRenderer.create(<Task task={task} />);
+      const store = configureStore();
+      const taskComponent = ReactTestRenderer.create(
+        <Provider store={store}>
+          <Task task={task} />
+        </Provider>
+      );
       expect(taskComponent.toJSON()).toMatchSnapshot();
     });
   });
