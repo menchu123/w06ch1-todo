@@ -1,6 +1,6 @@
 import "./Task.css";
 
-const Task = () => {
+const Task = ({ taskText }) => {
   return (
     <li className="task form-check list-group-item d-flex justify-content-between align-items-center">
       <div className="task__left">
@@ -13,7 +13,7 @@ const Task = () => {
         <input
           type="text"
           className="task__text form-control border-0"
-          value="Lavar los platos"
+          value={taskText}
           onChange={() => {}}
         ></input>
       </div>
