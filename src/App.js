@@ -11,7 +11,6 @@ function App() {
   useEffect(() => {
     loadTasks();
   }, [loadTasks]);
-  console.log(tasks);
 
   return (
     <div className="todo-app container p-0">

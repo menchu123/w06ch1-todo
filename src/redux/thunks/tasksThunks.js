@@ -20,3 +20,13 @@ export const createTaskThunk = (task) => async (dispatch) => {
   task = await response.json();
   dispatch(createTaskAction(task));
 };
+
+export const deleteTaskThunk = (id) => async (dispatch) => {
+  await fetch(urlApi, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  dispatch(createTaskAction(id));
+};
