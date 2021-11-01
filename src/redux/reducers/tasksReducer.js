@@ -6,7 +6,9 @@ const tasksReducer = (tasks = [], action) => {
   switch (action.type) {
     case actionTypes.loadTasks:
       newTasks = [...action.tasks];
-
+      break;
+    case actionTypes.createTask:
+      newTasks = [...newTasks, action.task];
       break;
     default:
       return [...tasks];
