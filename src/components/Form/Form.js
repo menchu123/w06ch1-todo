@@ -7,7 +7,7 @@ const Form = () => {
         <div className="form-group col-10">
           <input
             type="text"
-            id="task"
+            id="task-input"
             className="form-control"
             required
             formNoValidate
