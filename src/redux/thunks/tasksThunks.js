@@ -22,11 +22,13 @@ export const createTaskThunk = (task) => async (dispatch) => {
 };
 
 export const deleteTaskThunk = (id) => async (dispatch) => {
-  await fetch(urlApi, {
+  const response = await fetch(`${urlApi}/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
   });
-  dispatch(createTaskAction(id));
+  if (response.ok) {
+    dispatch(createTaskAction(id));
+  }
 };

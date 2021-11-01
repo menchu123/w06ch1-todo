@@ -1,6 +1,14 @@
+import useTasks from "../../hooks/useTasks";
 import "./Task.css";
 
-const Task = ({ taskText }) => {
+const Task = ({ task }) => {
+  const { deleteTask } = useTasks();
+
+  const onDelete = (event) => {
+    event.preventDefault();
+    deleteTask(task.id);
+  };
+
   return (
     <li className="task form-check list-group-item d-flex justify-content-between align-items-center">
       <div className="task__left">
@@ -13,11 +21,16 @@ const Task = ({ taskText }) => {
         <input
           type="text"
           className="task__text form-control border-0"
-          value={taskText}
+          value={task.task}
           onChange={() => {}}
         ></input>
       </div>
-      <button className="task__delete btn btn-danger pull-right">-</button>
+      <button
+        className="task__delete btn btn-danger pull-right"
+        onClick={onDelete}
+      >
+        -
+      </button>
     </li>
   );
 };

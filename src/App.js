@@ -18,7 +18,7 @@ function App() {
       <Form />
       <TaskList>
         {tasks ? (
-          tasks.map((task) => <Task taskText={task.task} key={task.id} />)
+          tasks.map((task) => <Task task={task} key={task.id} />)
         ) : (
           <div>cool</div>
         )}

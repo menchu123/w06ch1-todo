@@ -7,11 +7,17 @@ describe("Given a Task component", () => {
     test("Then it should render an input with a 'cool' value", () => {
       const value = "cool";
 
-      render(<Task taskText={value} />);
+      const task = {
+        id: 3,
+        task: value,
+        done: true,
+      };
 
-      const task = screen.getByRole("textbox");
+      render(<Task task={task} />);
 
-      expect(task).toHaveValue(value);
+      const taskComponent = screen.getByRole("textbox");
+
+      expect(taskComponent).toHaveValue(value);
     });
   });
 
@@ -23,9 +29,7 @@ describe("Given a Task component", () => {
         done: true,
       };
 
-      const value = task.task;
-
-      const taskComponent = ReactTestRenderer.create(<Task taskText={value} />);
+      const taskComponent = ReactTestRenderer.create(<Task task={task} />);
       expect(taskComponent.toJSON()).toMatchSnapshot();
     });
   });
