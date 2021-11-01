@@ -9,3 +9,8 @@ export const loadTaskAction = (task) => ({
   type: actionTypes.loadTask,
   task,
 });
+
+export const createTaskAction = (task) => ({
+  type: actionTypes.createTask,
+  task,
+});

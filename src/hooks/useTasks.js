@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadTasksThunk } from "../redux/thunks/tasksThunks";
+import { createTaskThunk, loadTasksThunk } from "../redux/thunks/tasksThunks";
 
 const useTasks = () => {
   const tasks = useSelector(({ tasks }) => tasks);
@@ -10,9 +10,17 @@ const useTasks = () => {
     dispatch(loadTasksThunk());
   }, [dispatch]);
 
+  const createTask = useCallback(
+    (task) => {
+      dispatch(createTaskThunk(task));
+    },
+    [dispatch]
+  );
+
   return {
     tasks,
     loadTasks,
+    createTask,
   };
 };
 
