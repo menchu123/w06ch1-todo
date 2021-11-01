@@ -15,7 +15,7 @@ const Form = () => {
             placeholder="What do you want to do?"
           ></input>
         </div>
-        <div className="form-group col-2">
+        <div className="form-group col-2 p-0">
           <button type="submit" className="btn btn-primary">
             Add
           </button>
