@@ -4,6 +4,7 @@ import {
   createTaskThunk,
   deleteTaskThunk,
   loadTasksThunk,
+  updateTaskThunk,
 } from "../redux/thunks/tasksThunks";
 
 const useTasks = () => {
@@ -30,7 +31,7 @@ const useTasks = () => {
 
   const updateTask = useCallback(
     (task) => {
-      dispatch(deleteTaskThunk(task));
+      dispatch(updateTaskThunk(task));
     },
     [dispatch]
   );
