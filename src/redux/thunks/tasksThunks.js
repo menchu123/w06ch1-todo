@@ -2,6 +2,7 @@ import {
   createTaskAction,
   deleteTaskAction,
   loadTasksAction,
+  updateTaskAction,
 } from "../actions/actionCreators";
 
 const urlApi = "https://todo-api-w06ch1.herokuapp.com/tasks";
@@ -35,4 +36,17 @@ export const deleteTaskThunk = (id) => async (dispatch) => {
   if (response.ok) {
     dispatch(deleteTaskAction(id));
   }
+};
+
+export const updateTaskThunk = (task) => async (dispatch) => {
+  const response = await fetch(`${urlApi}/${task.id}`, {
+    method: "PUT",
+    body: JSON.stringify(task),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  task = await response.json();
+  dispatch(updateTaskAction(task));
 };

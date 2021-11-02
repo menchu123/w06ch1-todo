@@ -2,7 +2,7 @@
 
 exports[`Given a Task component When it recives and object then it should render a task with the task text inside 1`] = `
 <li
-  className="task form-check list-group-item d-flex justify-content-between align-items-center"
+  className="task form-check list-group-item d-flex justify-content-between"
 >
   <div
     className="task__left"
@@ -13,12 +13,16 @@ exports[`Given a Task component When it recives and object then it should render
       name="task"
       type="checkbox"
     />
-    <input
-      className="task__text form-control border-0"
-      onChange={[Function]}
-      type="text"
-      value="Sacar a Elsa"
-    />
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        className="task__text form-control border-0"
+        onChange={[Function]}
+        type="text"
+        value="Sacar a Elsa"
+      />
+    </form>
   </div>
   <button
     className="task__delete btn btn-danger pull-right"

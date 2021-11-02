@@ -13,6 +13,15 @@ const tasksReducer = (tasks = [], action) => {
     case actionTypes.deleteTask:
       newTasks = tasks.filter((task) => task.id !== action.id);
       break;
+    case actionTypes.updateTask:
+      newTasks = tasks.map((task) => {
+        if (task.id === action.task.id) {
+          return action.task;
+        } else {
+          return task;
+        }
+      });
+      break;
     default:
       return [...tasks];
   }
