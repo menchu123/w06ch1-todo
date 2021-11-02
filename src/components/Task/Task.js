@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useTasks from "../../hooks/useTasks";
 import "./Task.css";
 
@@ -10,6 +10,10 @@ const Task = ({ task }) => {
     deleteTask(task.id);
   };
 
+  const initialCheck = task.done;
+  //console.log(initialCheck);
+  const [isChecked, setIsChecked] = useState(initialCheck);
+  //console.log("esto otro" + isChecked);
   const initialData = task.task;
 
   const [taskData, setTaskData] = useState(initialData);
@@ -19,6 +23,25 @@ const Task = ({ task }) => {
     event.preventDefault();
     setTaskData(event.target.value);
   };
+
+  useEffect(() => {});
+  const changeChecked = (event) => {
+    setIsChecked(!isChecked);
+    console.log("esto" + isChecked);
+    // const newTask = {
+    //   ...task,
+    //   done: isChecked,
+    // };
+    // updateTask(newTask);
+  };
+
+  useEffect(() => {
+    const newTask = {
+      ...task,
+      done: isChecked,
+    };
+    updateTask(newTask);
+  }, [updateTask, isChecked]);
 
   const onUpdate = (event) => {
     event.preventDefault();
@@ -44,8 +67,10 @@ const Task = ({ task }) => {
       <div className="task__left">
         <input
           type="checkbox"
-          name="task"
-          id="task"
+          checked={isChecked}
+          onChange={changeChecked}
+          name="task-check"
+          id="task-check"
           className="form-check-input"
         />
         <form
