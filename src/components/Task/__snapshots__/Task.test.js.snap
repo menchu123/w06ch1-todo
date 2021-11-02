@@ -22,8 +22,9 @@ exports[`Given a Task component When it recives and object then it should render
       >
         <input
           className="task__text form-control border-0"
+          onBlur={[Function]}
           onChange={[Function]}
-          onClick={[Function]}
+          onFocus={[Function]}
           type="text"
           value="Sacar a Elsa"
         />

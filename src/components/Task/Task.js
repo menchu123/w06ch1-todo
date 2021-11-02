@@ -18,7 +18,6 @@ const Task = ({ task }) => {
   const onChange = (event) => {
     event.preventDefault();
     setTaskData(event.target.value);
-    setisEditing(true);
   };
 
   const onUpdate = (event) => {
@@ -31,7 +30,9 @@ const Task = ({ task }) => {
 
     updateTask(newTask);
     setisEditing(false);
-    event.target.querySelector(".task__text").blur();
+    if (event.target.querySelector(".task__text")) {
+      event.target.querySelector(".task__text").blur();
+    }
   };
 
   return (
@@ -53,7 +54,8 @@ const Task = ({ task }) => {
               className="task__text form-control border-0"
               value={taskData}
               onChange={(event) => onChange(event)}
-              onClick={(event) => onChange(event)}
+              onFocus={() => setisEditing(true)}
+              onBlur={(event) => onUpdate(event)}
             ></input>
           </div>
           <button
