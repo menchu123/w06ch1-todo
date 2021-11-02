@@ -16,8 +16,14 @@ const Task = ({ task }) => {
   const [isEditing, setisEditing] = useState(false);
 
   const onChange = (event) => {
-    event.preventDefault();
     setTaskData(event.target.value);
+  };
+
+  const changeChecked = () => {
+    updateTask({
+      ...task,
+      done: !task.done,
+    });
   };
 
   const onUpdate = (event) => {
@@ -28,10 +34,14 @@ const Task = ({ task }) => {
       done: task.done,
     };
 
-    updateTask(newTask);
-    setisEditing(false);
-    if (event.target.querySelector(".task__text")) {
-      event.target.querySelector(".task__text").blur();
+    if (taskData === "") {
+      deleteTask(task.id);
+    } else {
+      updateTask(newTask);
+      setisEditing(false);
+      if (event.target.querySelector(".task__text")) {
+        event.target.querySelector(".task__text").blur();
+      }
     }
   };
 
@@ -40,8 +50,10 @@ const Task = ({ task }) => {
       <div className="task__left">
         <input
           type="checkbox"
-          name="task"
-          id="task"
+          checked={task.done}
+          onChange={changeChecked}
+          name="task-check"
+          id="task-check"
           className="form-check-input"
         />
         <form
@@ -58,12 +70,8 @@ const Task = ({ task }) => {
               onBlur={(event) => onUpdate(event)}
             ></input>
           </div>
-          <button
-            className={`task__delete btn btn-${
-              isEditing ? "primary" : "danger"
-            } pull-right`}
-          >
-            {isEditing ? "Edit" : "-"}
+          <button className={`task__delete btn btn-danger pull-right`}>
+            -
           </button>
         </form>
       </div>
