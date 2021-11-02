@@ -28,10 +28,14 @@ const Task = ({ task }) => {
       done: task.done,
     };
 
-    updateTask(newTask);
-    setisEditing(false);
-    if (event.target.querySelector(".task__text")) {
-      event.target.querySelector(".task__text").blur();
+    if (taskData === "") {
+      deleteTask(task.id);
+    } else {
+      updateTask(newTask);
+      setisEditing(false);
+      if (event.target.querySelector(".task__text")) {
+        event.target.querySelector(".task__text").blur();
+      }
     }
   };
 
