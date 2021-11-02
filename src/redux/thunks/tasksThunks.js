@@ -36,3 +36,16 @@ export const deleteTaskThunk = (id) => async (dispatch) => {
     dispatch(deleteTaskAction(id));
   }
 };
+
+export const updateTaskThunk = (task) => async (dispatch) => {
+  const response = await fetch(`${urlApi}/${task.id}`, {
+    method: "PUT",
+    body: JSON.stringify(task),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  task = await response.json();
+  dispatch(deleteTaskAction(task));
+};
