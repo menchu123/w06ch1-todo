@@ -14,21 +14,26 @@ exports[`Given a Task component When it recives and object then it should render
       type="checkbox"
     />
     <form
+      className="form d-flex justify-content-between"
       onSubmit={[Function]}
     >
-      <input
-        className="task__text form-control border-0"
-        onChange={[Function]}
-        type="text"
-        value="Sacar a Elsa"
-      />
+      <div
+        className="form-group task__text-input"
+      >
+        <input
+          className="task__text form-control border-0"
+          onChange={[Function]}
+          onClick={[Function]}
+          type="text"
+          value="Sacar a Elsa"
+        />
+      </div>
+      <button
+        className="task__delete btn btn-danger pull-right"
+      >
+        -
+      </button>
     </form>
   </div>
-  <button
-    className="task__delete btn btn-danger pull-right"
-    onClick={[Function]}
-  >
-    -
-  </button>
 </li>
 `;
