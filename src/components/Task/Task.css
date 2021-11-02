@@ -1,3 +1,11 @@
 .task__left {
+  width: 100%;
+}
+
+.task__text-input {
   width: 85%;
+}
+
+.form {
+  width: 100%;
 }
