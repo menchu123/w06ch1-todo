@@ -28,11 +28,19 @@ const useTasks = () => {
     [dispatch]
   );
 
+  const updateTask = useCallback(
+    (task) => {
+      dispatch(deleteTaskThunk(task));
+    },
+    [dispatch]
+  );
+
   return {
     tasks,
     loadTasks,
     createTask,
     deleteTask,
+    updateTask,
   };
 };
 
