@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useTasks from "../../hooks/useTasks";
 import "./Task.css";
 
@@ -87,12 +87,8 @@ const Task = ({ task }) => {
               onBlur={(event) => onUpdate(event)}
             ></input>
           </div>
-          <button
-            className={`task__delete btn btn-${
-              isEditing ? "primary" : "danger"
-            } pull-right`}
-          >
-            {isEditing ? "Edit" : "-"}
+          <button className={`task__delete btn btn-danger pull-right`}>
+            -
           </button>
         </form>
       </div>
