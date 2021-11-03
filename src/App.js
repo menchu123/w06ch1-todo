@@ -18,7 +18,9 @@ function App() {
       <Form />
       <TaskList>
         {tasks ? (
-          tasks.map((task) => <Task task={task} key={task.id} />)
+          tasks
+            .sort((task) => (task.done ? 1 : -1))
+            .map((task) => <Task task={task} key={task.id} />)
         ) : (
           <div>cool</div>
         )}

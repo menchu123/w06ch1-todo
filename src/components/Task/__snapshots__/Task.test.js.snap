@@ -2,7 +2,7 @@
 
 exports[`Given a Task component When it recives and object then it should render a task with the task text inside 1`] = `
 <li
-  className="task form-check list-group-item d-flex justify-content-between"
+  className="task form-check list-group-item d-flex justify-content-between "
 >
   <div
     className="task__left"
@@ -23,7 +23,7 @@ exports[`Given a Task component When it recives and object then it should render
         className="form-group task__text-input"
       >
         <input
-          className="task__text form-control border-0"
+          className="task__text form-control border-0 task-done"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
