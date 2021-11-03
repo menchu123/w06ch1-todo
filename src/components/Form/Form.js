@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useTasks from "../../hooks/useTasks";
 
 const Form = () => {
@@ -27,10 +27,17 @@ const Form = () => {
     resetForm();
   };
 
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+
+  useEffect(() => {
+    setButtonDisabled(taskData.task === "");
+  }, [taskData.task]);
+
   return (
     <form
       className="form-row align-items-center todo__form"
       onSubmit={onCreateTask}
+      noValidate
     >
       <div className="row">
         <div className="form-group col-10">
@@ -39,7 +46,6 @@ const Form = () => {
             id="task"
             className="form-control"
             required
-            formNoValidate
             autoComplete="off"
             placeholder="What do you want to do?"
             value={taskData.task}
@@ -47,7 +53,11 @@ const Form = () => {
           ></input>
         </div>
         <div className="form-group col-2 p-0">
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            disabled={buttonDisabled}
+          >
             Add
           </button>
         </div>

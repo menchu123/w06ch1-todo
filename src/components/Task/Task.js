@@ -72,8 +72,13 @@ const Task = ({ task }) => {
               onBlur={(event) => onUpdate(event)}
             ></input>
           </div>
-          <button className={`task__delete btn btn-danger pull-right`}>
-            -
+          <button
+            type="submit"
+            className={`task__delete btn btn-${
+              isEditing ? "primary" : "danger"
+            } pull-right`}
+          >
+            {isEditing ? "Edit" : "-"}
           </button>
         </form>
       </div>
