@@ -36,6 +36,8 @@ const Task = ({ task }) => {
 
     if (taskData === "") {
       deleteTask(task.id);
+    } else if (taskData === task.task) {
+      return;
     } else {
       updateTask(newTask);
       setisEditing(false);
@@ -69,7 +71,7 @@ const Task = ({ task }) => {
               value={taskData}
               onChange={(event) => onChange(event)}
               onFocus={() => setisEditing(true)}
-              onBlur={(event) => onUpdate(event)}
+              onBlur={isEditing ? (event) => onUpdate(event) : () => {}}
             ></input>
           </div>
           <button
