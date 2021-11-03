@@ -46,7 +46,7 @@ const Task = ({ task }) => {
   };
 
   return (
-    <li className="task form-check list-group-item d-flex justify-content-between">
+    <li className="task form-check list-group-item d-flex justify-content-between ">
       <div className="task__left">
         <input
           type="checkbox"
@@ -63,7 +63,9 @@ const Task = ({ task }) => {
           <div className="form-group task__text-input">
             <input
               type="text"
-              className="task__text form-control border-0"
+              className={`task__text form-control border-0${
+                task.done ? " task-done" : ""
+              }`}
               value={taskData}
               onChange={(event) => onChange(event)}
               onFocus={() => setisEditing(true)}

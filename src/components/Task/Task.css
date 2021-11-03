@@ -9,3 +9,8 @@
 .form {
   width: 100%;
 }
+
+.task-done {
+  text-decoration: line-through;
+  color: gray;
+}
