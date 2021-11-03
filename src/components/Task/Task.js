@@ -74,11 +74,9 @@ const Task = ({ task }) => {
           </div>
           <button
             type="submit"
-            className={`task__delete btn btn-${
-              isEditing ? "primary" : "danger"
-            } pull-right`}
+            className={`task__delete btn btn-danger pull-right`}
           >
-            {isEditing ? "Edit" : "-"}
+            -
           </button>
         </form>
       </div>
