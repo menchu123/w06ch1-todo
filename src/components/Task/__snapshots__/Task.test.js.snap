@@ -33,6 +33,7 @@ exports[`Given a Task component When it recives and object then it should render
       </div>
       <button
         className="task__delete btn btn-danger pull-right"
+        type="submit"
       >
         -
       </button>
